@@ -1,0 +1,12 @@
+*.pyc
+*.pyc
+__pycache__/
+*.log
+*.pot
+*.pyc
+*.sql
+*.sql.gz
+.env
+.vscode/
+/config/settings.py
+/media/

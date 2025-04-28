@@ -1,0 +1,80 @@
+{% load static %}
+<html>
+    <head>
+        <title>IPL Predict</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+    </head>
+    <body>
+        <h1 style="text-align:center;">Welcome to predict the ipl champion 2025</h1>
+        <div class="full">            
+            <div class="predict">
+                <h3 style="color: red;">Predict the Match Winner</h3>
+                {% for i in matno %}
+                    {% if i.winner == 'both' %}
+                        <img src="{% static 'images/' %}{{ i.home }}.jpg" alt="{{ i.home }}">
+                        <img src="{% static 'images/VS.jpg' %}" style="opacity: 0.3;">
+                        <img src="{% static 'images/' %}{{ i.away }}.jpg" alt="{{ i.away }}">
+                    {% else %}
+                        <img src="{% static 'images/' %}{{ i.winner }}.jpg" alt="{{ i.winner }}">
+                        <img src="{% static 'images/VS.jpg' %}" style="opacity: 0.3;">
+                        <img src="{% static 'images/' %}{{ i.looser }}.jpg" alt="{{ i.looser }}" style="opacity: 0.3;">
+                    {% endif %}
+                    <button onclick="matre('{{i.no}}')">
+                        For Reset Press Here
+                    </button>
+                    <br>
+                {% endfor %}
+                {% block predmat %}
+                {% endblock %}
+            </div>
+            <script>
+                function matre(n){
+                    window.location.href = "/matchreset/"+ n+ '/';
+                }
+            </script>
+            <div class="pointtb">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Matches</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Tiees</th>
+                            <th>Points</th>
+                            <th>NRR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tm in team %}
+                        <tr>
+                            <td>{{ tm.team }}</td>
+                            <td>{{ tm.matches }}</td>
+                            <td>{{ tm.win }}</td>
+                            <td>{{ tm.loss }}</td>
+                            <td>{{ tm.tie }}</td>
+                            <td>{{ tm.point }}</td>
+                            <td>{{ tm.nrr|floatformat:3 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <button onclick="window.location.href='/reset/'">
+                    For Reset Press Here
+                </button>
+                <br>
+                <br>
+                <button onclick="window.location.href='/playreset/'">
+                    For Playoff Reset Press Here
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+            <p>The teams and logos used here are not for commercial purposes or promotion.
+            This project is created purely for educational and fun purposes.<br>
+            I sincerely apologize if it unintentionally offends anyone.</p>
+        </div>
+    </body>
+</html>

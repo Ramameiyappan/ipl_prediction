@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block predmat %}
+    <h3>Playoff Predition</h3>
+    <h1>{{ msg }}</h1>
+    <div class="matches">
+        <button class="circle-btn" onclick="updatetb('{{match.team1}}', '{{match.team2}}')">
+            <img src="{% static 'images/' %}{{ match.team1 }}.jpg" alt="{{ match.team1 }}">
+        </button>
+        <img src="{% static 'images/VS.jpg' %}">
+        <button class="circle-btn" onclick="updatetb('{{match.team2}}', '{{match.team1}}')">
+            <img src="{% static 'images/' %}{{ match.team2 }}.jpg" alt="{{ match.team2 }}">
+        </button>
+    </div>
+    <script>
+        function updatetb(w,l){
+            window.location.href = '/updateplaytb/'+ w+ '/'+ l+ '/';
+        }
+    </script>
+    
+{% endblock %}

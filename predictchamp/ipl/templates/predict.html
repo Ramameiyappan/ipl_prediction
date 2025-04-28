@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block predmat %}
+<p>Click the Winning Team, In case of tie click the VS</p>
+<div class="matches">
+    <button class="circle-btn" onclick="update('{{match.home}}', '{{match.away}}')">
+        <img src="{% static 'images/' %}{{ match.home }}.jpg" alt="{{ match.home }}">
+    </button>
+    <button class="circle-btn" onclick="update('{{match.home}}', '{{match.away}}', 1)">
+        <img src="{% static 'images/VS.jpg' %}">
+    </button>
+    <button class="circle-btn" onclick="update('{{ match.away }}', '{{ match.home }}')">
+        <img src="{% static 'images/' %}{{ match.away }}.jpg" alt="{{ match.away }}">
+    </button>
+</div>
+<script>
+    function update(w,l,t=0){
+        window.location.href = '/update/'+ w+ '/'+ l+ '/'+ '{{match.no}}'+ '/'+ t+ '/';
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+body{
+    background-color:antiquewhite;
+}
+
+.full{
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.predict{
+    background-color:aliceblue;
+    overflow-y: auto; 
+    padding: 2%;
+    width: 100%;
+}
+
+.pointtb{
+    background-color: aquamarine;
+    border-color: rgb(162, 245, 7);
+    border-style: dashed;
+    align-items: center;
+    padding: 1%;
+    width: 100%;
+}
+
+.matches{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 60px;
+}
+
+.circle-btn {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%; 
+    overflow: hidden;      
+    width: 85px;           
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.circle-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      
+    display: block;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+.footer{
+    background: linear-gradient(to right, #f9f9f9, #e0e0e0);
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    color: #333;
+    text-align: center;
+}
